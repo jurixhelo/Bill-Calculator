@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
 import { Button } from "react-native-paper";
+import styles from "./HomePage.styles";
 
-const FirstPage = ({ navigation }) => {
+const HomePage = ({ navigation }) => {
   const [amount, setAmount] = useState("");
 
   return (
@@ -17,7 +18,7 @@ const FirstPage = ({ navigation }) => {
       <Button
         mode="contained"
         onPress={() =>
-          navigation.navigate("SecondPage", { amount: parseFloat(amount) })
+          navigation.navigate("SplitBillPage", { amount: parseFloat(amount) })
         }
         disabled={!amount}
       >
@@ -27,25 +28,4 @@ const FirstPage = ({ navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  label: {
-    fontSize: 18,
-    marginVertical: 8,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: "#ccc",
-    padding: 8,
-    marginBottom: 16,
-    width: "80%",
-    borderRadius: 4,
-  },
-});
-
-export default FirstPage;
+export default HomePage;
